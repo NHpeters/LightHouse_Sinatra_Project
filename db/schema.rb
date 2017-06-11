@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170603212002) do
     t.string "title"
     t.string "author"
     t.string "content"
+    t.string "url"
   end
 
   create_table "posts", force: :cascade do |t|
