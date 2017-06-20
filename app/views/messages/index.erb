@@ -2,7 +2,8 @@
 <dic class="message">
   <h3><a href="/messages/<%= message.id %>"</a><%= message.title %> <small>(by: <%= message.author %>)</small></h3>
   <p>
-    <%= message.content %><small>(<%= message.url %>)</small>
+    <%= message.content %>
+    <%= message.url %>
   </p>
 </div>
 <% end %>
