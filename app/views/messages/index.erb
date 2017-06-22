@@ -1,3 +1,7 @@
+<h3><a href="/messages/new">Click here to post your message!</a></h3>
+
+<h2>MESSAGE BOARD:</h2>
+
 <% @messages.each do |message| %>
 <dic class="message">
   <h3><a href="/messages/<%= message.id %>"</a> <%= message.title %><small> (by: <%= message.author %>)</small></h3>
@@ -6,5 +10,3 @@
   </p>
 </div>
 <% end %>
-
-<a href="/messages/new">Post a message... It's free (for now!)</a>
