@@ -1,0 +1,18 @@
+
+<h1><%= @message.title %></h1>
+
+<p>
+  Author: <%= @message.author %>
+</p>
+
+<p>
+  <%= @message.content %>
+</p>
+
+<p>
+  Other posts by this author: <% same_author %>
+
+</p>
+
+<hr/>
+<a href="/messages">Back to All Messages<a/>

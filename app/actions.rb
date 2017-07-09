@@ -1,3 +1,6 @@
+
+
+
 helpers do
     def logged_in?
         if session[:user_id]
@@ -147,6 +150,13 @@ get '/messages/new' do
 end
 
 post '/messages' do
+  # 1. views page submits information to endpoint: /messages with a POST request
+  # 2. server receives information, assigns to a variable (params)
+  # 3. server needs to know what to do with the information
+  #   judging from this endpoint, POST implies submission of information
+  #   and messages implies the category that it wants to sub
+  # 4. Takes information, and use ActiveRecord to talk to Database
+  # 5. ActiveRecord API
   @message = Message.new(
     title: params[:title],
     content: params[:content],
@@ -160,6 +170,11 @@ post '/messages' do
 end
 
 get '/messages/:id' do
-  @message = Message.find params[:id]
+  @message = Message.find(params[:id])
+  @author = @message.author
+  #@other_by_author = Message.where(author: @author)
+  @other_by_author = Message.where('author = ? AND id != ?', @author, @message.id)
+
+  #@message = Message.where(":id => ? OR message.author = ?", :id, :author)
   erb :'messages/show'
 end
